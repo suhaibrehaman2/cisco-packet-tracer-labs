@@ -102,3 +102,12 @@ ip route 192.168.1.0 255.255.255.0 10.0.0.1
 end
 write memory
 
+#Default Routing is a routing method in which a router forwards packets to a default gateway when it does not know the destination network.
+
+Instead of storing routes for every network, the router uses a default route (0.0.0.0/0) to send all unknown traffic to the next-hop router.
+
+Advantages:
+
+Reduces the routing table size.
+Simplifies router configuration.
+Commonly used to forward traffic toward the Internet or an upstream router.
