@@ -101,3 +101,29 @@ ping
 ✔ Routing tables updated automatically
 
 ---
+
+What is RIP (Routing Information Protocol)?
+
+Routing Information Protocol (RIP) is a dynamic routing protocol that enables routers to automatically exchange routing information and
+determine the best path for forwarding data between different networks.RIP uses hop count as its routing metric, where the path with the 
+fewest number of router hops is chosen as the best route. The maximum hop count supported by RIP is 15; a hop count of 16 indicates that
+the destination is unreachable.
+
+Advantages of RIP
+*Easy to configure and manage.
+*Automatically updates routing tables when the network changes.
+*Suitable for small networks.
+*Supported by most Cisco routers and networking devices.
+*Reduces the need for manual static route configuration.
+
+Disadvantages of RIP
+*Supports a maximum of 15 hops, making it unsuitable for large networks.
+*Slow convergence, so it takes longer to adapt to network changes.
+*Uses hop count only and does not consider bandwidth, delay, or link quality.
+*Sends periodic routing updates every 30 seconds, which increases network traffic.
+*Not recommended for large or enterprise networks due to scalability limitations.
+
+Example Use Case
+
+A small company with two or three branch offices can use RIP to automatically share routes between routers, allowing computers in
+different offices to communicate without configuring static routes on every router.
