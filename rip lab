@@ -1,0 +1,103 @@
+# Cisco Packet Tracer RIP Routing Lab
+
+## Overview
+
+This project demonstrates the configuration of the Routing Information Protocol (RIP Version 2) using Cisco Packet Tracer.
+
+The lab consists of two routers connected together, each serving a separate LAN. RIP is configured to enable dynamic route exchange, allowing devices on different networks to communicate.
+
+---
+
+## Network Topology
+
+                    Router-to-Router Link
+                 10.0.0.0/30 Network
+        ┌──────────────────────────────────┐
+        │                                  │
+   G0/0 │ 10.0.0.1              10.0.0.2 │ G0/0
+   ┌────▼────┐====================┌────▼────┐
+   │ Router0 │                    │ Router1 │
+   └────┬────┘                    └────┬────┘
+        │ G0/1                         │ G0/1
+        │                              │
+ 192.168.1.1/24                  192.168.2.1/24
+        │                              │
+   ┌────▼────┐                    ┌────▼────┐
+   │ Switch0 │                    │ Switch1 │
+   └───┬──┬──┘                    └──┬──┬───┘
+       │  │                           │  │
+       │  │                           │  │
+   ┌───▼┐ ┌▼───┐                  ┌───▼┐ ┌▼───┐
+   │PC0 │ │PC1 │                  │PC2 │ │PC3 │
+   └────┘ └────┘                  └────┘ └────┘
+
+PC0 : 192.168.1.10/24         PC2 : 192.168.2.10/24
+PC1 : 192.168.1.11/24         PC3 : 192.168.2.11/24
+
+Default Gateway:
+Left LAN  : 192.168.1.1
+Right LAN : 192.168.2.1
+
+## IP Addressing
+
+| Device | Interface | IP Address |
+|----------|------------|---------------|
+| Router0 | G0/0 | 10.0.0.1/30 |
+| Router0 | G0/1 | 192.168.1.1/24 |
+| Router1 | G0/0 | 10.0.0.2/30 |
+| Router1 | G0/1 | 192.168.2.1/24 |
+
+---
+
+## Technologies Used
+
+- Cisco Packet Tracer
+- RIP Version 2
+- IPv4
+- Cisco IOS CLI
+
+---
+
+## Configuration
+
+### Router0
+
+```bash
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+network 192.168.1.0
+```
+
+### Router1
+
+```bash
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+network 192.168.2.0
+```
+
+---
+
+## Verification
+
+```
+show ip route
+show ip protocols
+ping
+```
+
+---
+
+## Results
+
+✔ Dynamic routing configured successfully
+
+✔ Both LANs communicate through RIP
+
+✔ Routing tables updated automatically
+
+---
